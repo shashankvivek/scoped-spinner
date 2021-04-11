@@ -31,7 +31,7 @@ export class SpinnerService {
     this.templateRef = template;
   }
 
-  public startLoadingForComponent<T>(component: ElementRef) {
+  public startLoadingForComponent(component: ElementRef) {
     const element: HTMLElement = component.nativeElement;
     element.setAttribute("style", "position: relative");
     element.insertAdjacentHTML(
@@ -40,7 +40,7 @@ export class SpinnerService {
     );
   }
 
-  public finishLoadingForComponent<T>(component: ElementRef) {
+  public finishLoadingForComponent(component: ElementRef) {
     const element: HTMLElement = component.nativeElement;
     const loadingCompTemplate = element.querySelector("#component-spinner");
     this.renderer.removeChild(element, loadingCompTemplate);
