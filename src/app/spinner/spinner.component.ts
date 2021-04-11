@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SpinnerService } from './spinner.service';
 
@@ -7,7 +7,7 @@ import { SpinnerService } from './spinner.service';
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.scss']
 })
-export class SpinnerComponent implements OnInit {
+export class SpinnerComponent implements AfterViewInit {
 
   public isLoading = false;
   private loadingSubscription = new Subscription();
@@ -21,10 +21,6 @@ export class SpinnerComponent implements OnInit {
       this.isLoading = state;
     });
    }
-
-  ngOnInit(): void {
-
-  }
 
   ngAfterViewInit(){
     this.componentSpinner.nativeElement.setAttribute('style', 'display: none')    
