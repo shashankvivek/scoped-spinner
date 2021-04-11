@@ -10,14 +10,13 @@ import { SpinnerService } from '../spinner/spinner.service';
 })
 export class DashboardComponent implements OnInit {
 
-  username: string;
   constructor(private spinnerSvc: SpinnerService) { }
 
   ngOnInit(): void {
-    this.spinnerSvc.startLoading();
-    of({name: 'Superman'}).pipe(delay(3000), finalize(() => this.spinnerSvc.finishLoading())).subscribe(res => {
-      this.username = res.name;
-    })
+    // this.spinnerSvc.startLoading();
+    // of({name: 'Superman'}).pipe(delay(3000), finalize(() => this.spinnerSvc.finishLoading())).subscribe(res => {
+    //   this.username = res.name;
+    // })
   }
 
 }

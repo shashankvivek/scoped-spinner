@@ -6,6 +6,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserCountComponent } from './user-count/user-count.component';
 import { OrderCountComponent } from './order-count/order-count.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { RouterModule, Routes } from '@angular/router';
+import { WelcomeComponent } from './welcome/welcome.component';
+
+
+const route: Routes = [
+  {
+    path: '',
+    component: WelcomeComponent
+    
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -13,10 +28,12 @@ import { SpinnerComponent } from './spinner/spinner.component';
     DashboardComponent,
     UserCountComponent,
     OrderCountComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    WelcomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(route)
   ],
   providers: [],
   bootstrap: [AppComponent]
