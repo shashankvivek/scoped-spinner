@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnInit,
   ViewChild,
 } from "@angular/core";
@@ -16,6 +17,12 @@ import { SpinnerService } from "../spinner/spinner.service";
   styleUrls: ["./order-count.component.scss"],
 })
 export class OrderCountComponent implements OnInit, AfterViewInit {
+  @Input() 
+  set month(month: number){
+    if(month){
+      this.fetchOrder(month);
+    }
+  }
   @ViewChild("orderTemplate") orderTemplate: ElementRef;
   count: number;
   constructor(private spinnerSvc: SpinnerService, private router: Router) {}
@@ -23,6 +30,10 @@ export class OrderCountComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
+   
+  }
+
+  fetchOrder(id: number){
     this.spinnerSvc.startLoadingForComponent(this.orderTemplate);
     of({ count: 500 })
       .pipe(
