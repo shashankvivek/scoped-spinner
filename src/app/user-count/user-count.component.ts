@@ -24,7 +24,7 @@ export class UserCountComponent implements AfterViewInit {
     this.spinnerSvc.startLoadingForComponent(this.userTemplate);
     of({ count: 5 })
       .pipe(
-        delay(3000),
+        delay(5000),
         finalize(() =>
           this.spinnerSvc.finishLoadingForComponent(this.userTemplate)
         )
